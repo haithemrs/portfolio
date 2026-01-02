@@ -1,0 +1,320 @@
+/* ================= HERO SECTION ================= */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  padding: 120px 2rem 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, #0b1026 0%, #0e1538 40%, #0b1026 100%);
+  overflow: hidden;
+}
+
+/* ================= BACKGROUND GEOMETRY ================= */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(90, 140, 255, 0.08),
+    transparent 70%
+  );
+  filter: blur(60px);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -30%;
+  left: -15%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(
+    circle,
+    rgba(140, 90, 255, 0.06),
+    transparent 70%
+  );
+  filter: blur(80px);
+}
+
+/* ================= CONTENT WRAPPER ================= */
+.content {
+  max-width: 1100px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= GRID LAYOUT ================= */
+.profileSection {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 4rem;
+}
+
+/* ================= TEXT SIDE ================= */
+.infoSection {
+  order: 1;
+}
+
+.greetingWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.greeting {
+  font-size: 1rem;
+  color: #9aa4c7;
+  letter-spacing: 1px;
+}
+
+.waveEmoji {
+  font-size: 1.6rem;
+}
+
+/* Name */
+.name {
+  font-size: 3.4rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 0.6rem 0 1.2rem;
+  color: #ffffff;
+}
+
+.firstName {
+  display: block;
+  color: #ffffff;
+}
+
+.lastName {
+  display: block;
+  color: #5a8cff;
+}
+
+/* Role */
+.roleContainer {
+  margin-bottom: 1.8rem;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #c7cdee;
+}
+
+.staticText {
+  color: #9aa4c7;
+}
+
+.dynamicText {
+  color: #5a8cff;
+  font-weight: 700;
+}
+
+.cursor {
+  color: #5a8cff;
+}
+
+/* Bio */
+.bio {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #b6bddf;
+  max-width: 520px;
+}
+
+.bio strong {
+  color: #5a8cff;
+}
+
+/* ================= BUTTONS ================= */
+.buttonGroup {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 2.5rem;
+}
+
+.primaryButton {
+  padding: 0.9rem 2rem;
+  border-radius: 8px;
+  background: #5a8cff;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.primaryButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(90, 140, 255, 0.35);
+}
+
+.secondaryButton {
+  padding: 0.9rem 2rem;
+  border-radius: 8px;
+  background: transparent;
+  border: 2px solid rgba(90, 140, 255, 0.5);
+  color: #5a8cff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.secondaryButton:hover {
+  background: rgba(90, 140, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+/* ================= IMAGE SIDE ================= */
+.imageContainer {
+  order: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 260px;
+  height: 260px;
+}
+
+.profileImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 3px solid rgba(90, 140, 255, 0.6);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  transition: transform 0.4s ease;
+}
+
+.imageWrapper:hover .profileImage {
+  transform: translateY(-6px);
+}
+
+/* Decorative frame */
+.imageWrapper::before {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border-radius: 20px;
+  border: 1px solid rgba(90, 140, 255, 0.3);
+}
+
+/* ================= SCROLL INDICATOR ================= */
+.scrollIndicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #9aa4c7;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+}
+
+.scrollMouse {
+  width: 24px;
+  height: 40px;
+  border: 2px solid #5a8cff;
+  border-radius: 14px;
+  margin: 0 auto 0.5rem;
+}
+
+.scrollWheel {
+  width: 4px;
+  height: 8px;
+  background: #5a8cff;
+  border-radius: 2px;
+  margin: 6px auto;
+  animation: scroll 2s infinite;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .profileSection {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .imageContainer {
+    order: 1;
+  }
+
+  .infoSection {
+    order: 2;
+  }
+
+  .bio {
+    margin: 0 auto;
+  }
+
+  .buttonGroup {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .name {
+    font-size: 2.6rem;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .imageWrapper {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+/* ================= SOCIAL SECTION ================= */
+.socialSection {
+  margin-top: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.socialLabel {
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #9aa4c7;
+  font-weight: 600;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 1rem;
+}
